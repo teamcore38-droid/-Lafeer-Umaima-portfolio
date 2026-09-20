@@ -15,12 +15,13 @@ const socials = [
 ---
 
 <section id="home" class="relative isolate overflow-hidden pt-6 pb-8 md:pt-10 md:pb-10">
-  <!-- Interactive Waveform Background -->
+  <!-- Interactive Waveform Background (GPU Optimized) -->
   <div
-    class="pointer-events-none absolute inset-x-0 bottom-0 -z-10 h-52 [mask-image:linear-gradient(to_bottom,transparent,black_40%)] md:h-72 opacity-80"
+    class="pointer-events-none absolute inset-x-0 bottom-0 -z-10 h-52 md:h-72 opacity-75 overflow-hidden"
     aria-hidden="true"
   >
     <Seismograph client:load />
+    <div class="pointer-events-none absolute inset-0 bg-gradient-to-b from-[#070814] via-transparent to-[#070814]/80"></div>
   </div>
 
   <div class="mx-auto max-w-6xl px-6">

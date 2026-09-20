@@ -82,13 +82,11 @@ export default function Seismograph() {
       // the trace, fading in from the left with purple and cyan neon glow
       const gradient = ctx.createLinearGradient(0, 0, width, 0);
       gradient.addColorStop(0, "rgba(56, 189, 248, 0)");
-      gradient.addColorStop(0.3, "rgba(56, 189, 248, 0.5)");
-      gradient.addColorStop(0.7, "rgba(139, 92, 246, 0.8)");
+      gradient.addColorStop(0.3, "rgba(56, 189, 248, 0.65)");
+      gradient.addColorStop(0.7, "rgba(139, 92, 246, 0.9)");
       gradient.addColorStop(1, "rgba(192, 132, 252, 1)");
       ctx.strokeStyle = gradient;
-      ctx.lineWidth = 2.5;
-      ctx.shadowColor = "rgba(139, 92, 246, 0.6)";
-      ctx.shadowBlur = 8;
+      ctx.lineWidth = 2;
       ctx.lineJoin = "round";
       ctx.beginPath();
       trace.forEach((value, i) => {
@@ -98,16 +96,19 @@ export default function Seismograph() {
         else ctx.lineTo(x, y);
       });
       ctx.stroke();
-      ctx.shadowBlur = 0; // reset
     };
 
     const resize = () => {
       const rect = parent.getBoundingClientRect();
-      const dpr = Math.min(window.devicePixelRatio || 1, 2);
+      if (rect.width <= 0 || rect.height <= 0) return;
+      const dpr = Math.min(window.devicePixelRatio || 1, 1.5);
+      const newW = Math.max(1, Math.floor(rect.width * dpr));
+      const newH = Math.max(1, Math.floor(rect.height * dpr));
+      if (newW === canvas.width && newH === canvas.height) return;
       width = rect.width;
       height = rect.height;
-      canvas.width = Math.max(1, Math.floor(width * dpr));
-      canvas.height = Math.max(1, Math.floor(height * dpr));
+      canvas.width = newW;
+      canvas.height = newH;
       ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
       fill(Math.ceil(width / STEP_PX) + 2);
       draw();

@@ -15,7 +15,7 @@ import { skillsWithLogos } from "../data/skillsData";
     <!-- First Track -->
     <div class="marquee-track">
       {skillsWithLogos.map((skill) => (
-        <div class="glass-panel glass-panel-hover flex items-center gap-3 rounded-2xl border-white/10 px-5 py-2.5 shadow-md transition-all hover:border-purple-400/50 hover:bg-white/[0.07] whitespace-nowrap group">
+        <div class="marquee-card flex items-center gap-3 rounded-2xl px-5 py-2.5 shadow-md whitespace-nowrap group">
           <!-- Real Brand SVG Logo -->
           <div
             class="flex h-7 w-7 items-center justify-center shrink-0 transition-transform group-hover:scale-110"
@@ -37,7 +37,7 @@ import { skillsWithLogos } from "../data/skillsData";
     <!-- Duplicate Track for Seamless Infinite Loop -->
     <div class="marquee-track" aria-hidden="true">
       {skillsWithLogos.map((skill) => (
-        <div class="glass-panel glass-panel-hover flex items-center gap-3 rounded-2xl border-white/10 px-5 py-2.5 shadow-md transition-all hover:border-purple-400/50 hover:bg-white/[0.07] whitespace-nowrap group">
+        <div class="marquee-card flex items-center gap-3 rounded-2xl px-5 py-2.5 shadow-md whitespace-nowrap group">
           <!-- Real Brand SVG Logo -->
           <div
             class="flex h-7 w-7 items-center justify-center shrink-0 transition-transform group-hover:scale-110"

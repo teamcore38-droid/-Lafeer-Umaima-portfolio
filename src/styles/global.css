@@ -75,22 +75,38 @@
   }
 }
 
-/* Custom Glass & Glowing Utilities */
+/* Custom Glass & Glowing Utilities (Mobile WebKit GPU Optimized) */
 .glass-panel {
-  background: rgba(15, 18, 42, 0.7);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
+  background: rgba(15, 18, 42, 0.75);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
   border: 1px solid rgba(255, 255, 255, 0.08);
+  contain: paint;
 }
 
 .glass-panel-hover {
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 .glass-panel-hover:hover {
-  background: rgba(22, 27, 60, 0.85);
+  background: rgba(22, 27, 60, 0.9);
   border-color: rgba(139, 92, 246, 0.35);
   box-shadow: 0 10px 30px -10px rgba(139, 92, 246, 0.25), 0 0 15px -2px rgba(56, 189, 248, 0.15);
   transform: translateY(-2px);
+}
+
+/* High-performance non-blur card specifically for continuous marquee animation */
+.marquee-card {
+  background: rgba(13, 16, 38, 0.88);
+  border: 1px solid rgba(255, 255, 255, 0.09);
+  transform: translateZ(0);
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  transition: all 0.25s ease;
+}
+.marquee-card:hover {
+  background: rgba(22, 27, 60, 0.95);
+  border-color: rgba(139, 92, 246, 0.45);
+  box-shadow: 0 4px 20px -2px rgba(139, 92, 246, 0.25);
 }
 
 .gradient-text {
@@ -116,14 +132,14 @@
   transform: translateY(-1px);
 }
 
+/* Smooth radial gradient glows without expensive GPU blur filter */
 .glow-orb-purple {
   position: absolute;
   width: 550px;
   height: 550px;
   border-radius: 9999px;
-  background: radial-gradient(circle, rgba(139, 92, 246, 0.16) 0%, rgba(139, 92, 246, 0) 70%);
+  background: radial-gradient(circle at 50% 50%, rgba(139, 92, 246, 0.18) 0%, rgba(139, 92, 246, 0.08) 35%, rgba(139, 92, 246, 0.02) 55%, transparent 70%);
   pointer-events: none;
-  filter: blur(40px);
 }
 
 .glow-orb-blue {
@@ -131,9 +147,8 @@
   width: 500px;
   height: 500px;
   border-radius: 9999px;
-  background: radial-gradient(circle, rgba(56, 189, 248, 0.14) 0%, rgba(56, 189, 248, 0) 70%);
+  background: radial-gradient(circle at 50% 50%, rgba(56, 189, 248, 0.16) 0%, rgba(56, 189, 248, 0.06) 35%, rgba(56, 189, 248, 0.02) 55%, transparent 70%);
   pointer-events: none;
-  filter: blur(40px);
 }
 
 /* Subtle tech grid overlay */
