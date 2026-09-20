@@ -21,8 +21,7 @@ export const site = {
   email: "mohamedumaima119@gmail.com",
   linkedin: "https://www.linkedin.com/in/umaima-lafeer-05b955252",
 
-  // TODO: your GitHub profile, for example "https://github.com/your-username". Empty hides the link.
-  github: "",
+  github: "https://github.com/teamcore38-droid/-Lafeer-Umaima-portfolio",
 
   // Optional: create a free form at formspree.io and paste its id (the end of the form URL) here
   // to show a contact form. Empty hides the form and shows email and LinkedIn only.
