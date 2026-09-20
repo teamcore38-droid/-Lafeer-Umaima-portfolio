@@ -1,0 +1,50 @@
+---
+import { navLinks, site } from "../data/site";
+---
+
+<header class="sticky top-0 z-40 border-b border-white/[0.08] bg-[#070814]/80 backdrop-blur-xl transition-all">
+  <div class="mx-auto flex max-w-6xl items-center justify-between gap-4 px-6 py-3.5">
+    <!-- Brand Logo -->
+    <a href="#home" class="group flex items-center gap-3">
+      <div class="flex h-9 w-9 items-center justify-center rounded-lg bg-gradient-to-br from-purple-500 via-indigo-500 to-blue-500 text-sm font-extrabold text-white shadow-md shadow-purple-500/25 transition-transform group-hover:scale-105">
+        U
+      </div>
+      <div class="flex flex-col">
+        <span class="font-display text-base font-bold tracking-tight text-white group-hover:text-purple-300 transition-colors">
+          {site.shortName}
+        </span>
+        <span class="font-mono text-[10px] tracking-wider text-purple-400 uppercase">
+          Dev & Designer
+        </span>
+      </div>
+    </a>
+
+    <!-- Navigation -->
+    <nav
+      aria-label="Main"
+      class="flex items-center gap-1 sm:gap-2 text-[0.92rem] font-medium"
+    >
+      <div class="hidden sm:flex items-center rounded-full border border-white/[0.08] bg-white/[0.03] px-3 py-1 backdrop-blur-md">
+        {navLinks.map((link) => (
+          <a
+            href={link.href}
+            class="px-3.5 py-1 text-slate-300 transition-all hover:text-white hover:shadow-[0_0_12px_rgba(139,92,246,0.3)] rounded-full hover:bg-white/[0.06]"
+          >
+            {link.label}
+          </a>
+        ))}
+      </div>
+
+      <!-- Quick Action CTA -->
+      <a
+        href="#contact"
+        class="gradient-btn inline-flex items-center gap-2 rounded-full px-4 py-1.5 text-xs font-semibold text-white tracking-wide transition-all sm:text-sm sm:px-5 sm:py-2"
+      >
+        <span>Let's Talk</span>
+        <svg class="h-3.5 w-3.5 transition-transform group-hover:translate-x-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+        </svg>
+      </a>
+    </nav>
+  </div>
+</header>

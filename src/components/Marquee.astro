@@ -1,0 +1,59 @@
+---
+import { skillsWithLogos } from "../data/skillsData";
+---
+
+<!-- Continuous auto-traveling skills marquee with authentic brand logos -->
+<section
+  aria-label="Technologies & Languages"
+  class="relative overflow-hidden border-y border-white/[0.08] bg-[#070814]/75 py-3 backdrop-blur-md"
+>
+  <!-- Sleek gradient edge masks for smooth fade -->
+  <div class="pointer-events-none absolute inset-y-0 left-0 z-10 w-28 bg-gradient-to-r from-[#070814] via-[#070814]/80 to-transparent"></div>
+  <div class="pointer-events-none absolute inset-y-0 right-0 z-10 w-28 bg-gradient-to-l from-[#070814] via-[#070814]/80 to-transparent"></div>
+
+  <div class="marquee-container">
+    <!-- First Track -->
+    <div class="marquee-track">
+      {skillsWithLogos.map((skill) => (
+        <div class="glass-panel glass-panel-hover flex items-center gap-3 rounded-2xl border-white/10 px-5 py-2.5 shadow-md transition-all hover:border-purple-400/50 hover:bg-white/[0.07] whitespace-nowrap group">
+          <!-- Real Brand SVG Logo -->
+          <div
+            class="flex h-7 w-7 items-center justify-center shrink-0 transition-transform group-hover:scale-110"
+            set:html={skill.svg}
+          />
+          <!-- Name and subtle category tag -->
+          <div class="flex items-center gap-2">
+            <span class="text-sm font-semibold tracking-wide text-white group-hover:text-purple-200 transition-colors">
+              {skill.name}
+            </span>
+            <span class="hidden sm:inline-block font-mono text-[10px] text-slate-400 bg-white/[0.04] px-1.5 py-0.5 rounded border border-white/[0.06]">
+              {skill.category}
+            </span>
+          </div>
+        </div>
+      ))}
+    </div>
+
+    <!-- Duplicate Track for Seamless Infinite Loop -->
+    <div class="marquee-track" aria-hidden="true">
+      {skillsWithLogos.map((skill) => (
+        <div class="glass-panel glass-panel-hover flex items-center gap-3 rounded-2xl border-white/10 px-5 py-2.5 shadow-md transition-all hover:border-purple-400/50 hover:bg-white/[0.07] whitespace-nowrap group">
+          <!-- Real Brand SVG Logo -->
+          <div
+            class="flex h-7 w-7 items-center justify-center shrink-0 transition-transform group-hover:scale-110"
+            set:html={skill.svg}
+          />
+          <!-- Name and subtle category tag -->
+          <div class="flex items-center gap-2">
+            <span class="text-sm font-semibold tracking-wide text-white group-hover:text-purple-200 transition-colors">
+              {skill.name}
+            </span>
+            <span class="hidden sm:inline-block font-mono text-[10px] text-slate-400 bg-white/[0.04] px-1.5 py-0.5 rounded border border-white/[0.06]">
+              {skill.category}
+            </span>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

@@ -1,0 +1,120 @@
+---
+import { education, experience, extras } from "../data/site";
+---
+
+<section
+  id="background"
+  class="relative mx-auto max-w-6xl px-6 py-10 md:py-14"
+  aria-labelledby="background-title"
+>
+  <!-- Presentation Chapter Tag -->
+  <div class="flex items-center gap-2 font-mono text-xs text-purple-400">
+    <span class="h-1.5 w-1.5 rounded-full bg-purple-400"></span>
+    <span>SLIDE 04 // BACKGROUND & ROADMAP</span>
+  </div>
+
+  <div class="mt-3 flex flex-col md:flex-row md:items-end md:justify-between gap-4 border-b border-white/[0.08] pb-4">
+    <div>
+      <h2
+        id="background-title"
+        class="text-3xl font-extrabold tracking-tight text-white sm:text-4xl md:text-5xl"
+      >
+        Experience & <span class="gradient-text-purple-blue">Academic Path</span>
+      </h2>
+      <p class="mt-2.5 max-w-xl text-base text-slate-400">
+        Bridging university-level software engineering principles with practical industry roles and specialized design certifications.
+      </p>
+    </div>
+    <div class="font-mono text-xs text-cyan-400 hidden md:block">
+      // TIMELINE VIEW
+    </div>
+  </div>
+
+  <div class="mt-8 grid gap-8 lg:grid-cols-2">
+    <!-- Work Experience Column -->
+    <div>
+      <div class="flex items-center gap-3 mb-8">
+        <div class="flex h-8 w-8 items-center justify-center rounded-lg bg-purple-500/20 text-purple-400 border border-purple-500/30">
+          <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+          </svg>
+        </div>
+        <h3 class="text-xl font-bold tracking-tight text-white">
+          Work Experience
+        </h3>
+      </div>
+
+      <div class="relative pl-6 border-l border-purple-500/20 space-y-8">
+        {experience.map((job) => (
+          <div class="relative group">
+            <!-- Timeline glowing node -->
+            <div class="absolute -left-[31px] top-1.5 h-3.5 w-3.5 rounded-full border-2 border-[#070814] bg-purple-400 group-hover:bg-cyan-400 shadow-[0_0_8px_rgba(168,85,247,0.8)] transition-colors"></div>
+
+            <div class="glass-panel glass-panel-hover rounded-xl p-5 border-white/10">
+              <span class="font-mono text-xs font-semibold text-cyan-400 bg-cyan-950/40 border border-cyan-800/40 px-2.5 py-0.5 rounded-full">
+                {job.when}
+              </span>
+              <h4 class="mt-2 text-lg font-bold text-white group-hover:text-purple-200 transition-colors">
+                {job.title}
+              </h4>
+              <p class="mt-1 text-sm text-slate-300">
+                {job.where}
+              </p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+
+    <!-- Education Column -->
+    <div>
+      <div class="flex items-center gap-3 mb-8">
+        <div class="flex h-8 w-8 items-center justify-center rounded-lg bg-blue-500/20 text-blue-400 border border-blue-500/30">
+          <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 14l9-5-9-5-9 5 9 5z" />
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 14l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14z" />
+          </svg>
+        </div>
+        <h3 class="text-xl font-bold tracking-tight text-white">
+          Education & Diplomas
+        </h3>
+      </div>
+
+      <div class="relative pl-6 border-l border-blue-500/20 space-y-6">
+        {education.map((item) => (
+          <div class="relative group">
+            <!-- Timeline glowing node -->
+            <div class="absolute -left-[31px] top-1.5 h-3.5 w-3.5 rounded-full border-2 border-[#070814] bg-blue-400 group-hover:bg-purple-400 shadow-[0_0_8px_rgba(56,189,248,0.8)] transition-colors"></div>
+
+            <div class="glass-panel glass-panel-hover rounded-xl p-5 border-white/10">
+              <h4 class="text-base font-bold text-white group-hover:text-cyan-200 transition-colors">
+                {item.title}
+              </h4>
+              <p class="mt-1 text-sm text-slate-300">
+                {item.where}
+              </p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </div>
+
+  <!-- Extras Banner -->
+  <div class="mt-8 glass-panel rounded-2xl p-5 border-white/10 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+    <div class="flex items-center gap-3">
+      <div class="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-purple-500/20 text-purple-300 border border-purple-500/30">
+        <svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+        </svg>
+      </div>
+      <div>
+        <p class="font-bold text-white text-sm">Additional Certifications & Languages</p>
+        <p class="text-xs text-slate-300 mt-0.5">{extras}</p>
+      </div>
+    </div>
+    <span class="font-mono text-xs text-purple-400 bg-purple-500/10 border border-purple-500/30 px-3 py-1 rounded-full shrink-0 w-fit">
+      Multilingual
+    </span>
+  </div>
+</section>
