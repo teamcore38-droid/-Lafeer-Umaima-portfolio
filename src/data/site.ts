@@ -31,6 +31,7 @@ export const site = {
 export const navLinks = [
   { label: "Home", href: "#home" },
   { label: "Projects", href: "#projects" },
+  { label: "Designs", href: "#designs" },
   { label: "Background", href: "#background" },
   { label: "Contact", href: "#contact" },
 ];
@@ -146,6 +147,199 @@ export const projects: Project[] = [
     // TODO: once you push Food Nest to GitHub, paste the repository link here
     github: "",
     demo: "",
+  },
+];
+
+export type GraphicDesign = {
+  id: string;
+  title: string;
+  subtitle: string;
+  category: "Brand Logos" | "Merchandise & Print";
+  badge: string;
+  client: string;
+  year: string;
+  summary: string;
+  concept: string;
+  deliverables: string[];
+  tools: string[];
+  colorPalette: { name: string; hex: string }[];
+  primaryImage: string;
+  altText: string;
+  gallery?: {
+    image: string;
+    caption: string;
+    label: string;
+  }[];
+  accentGlow: string;
+};
+
+export const graphicDesigns: GraphicDesign[] = [
+  {
+    id: "cake-oclock",
+    title: "Cake o' clock",
+    subtitle: "3D Metallic Luxury Emblem & Identity",
+    category: "Brand Logos",
+    badge: "3D Emblem Logo",
+    client: "Artisan Patisserie & Bakery",
+    year: "2025",
+    summary:
+      "A high-end 3D metallic gold insignia designed for a gourmet bakery and patisserie. The visual mark ingeniously combines a minimalist clock dial motif with a cutout that reveals an appetizing slice of cake.",
+    concept:
+      "The concept plays on the double entendre of celebrating anytime as 'cake o\\'clock'. The circular dial is formed by golden hour markers that double as pastry portions. Rendered with realistic embossed reflective gold lighting over a dark matte carbon-weave backdrop, accompanied by flowing bespoke calligraphy and a mini pie icon, delivering an aura of luxury and celebration.",
+    deliverables: [
+      "Vector Master Emblem (.AI / .SVG)",
+      "High-Resolution 3D Embossed Render",
+      "Bespoke Script Typography Lockup",
+      "Social Media & Packaging Badges",
+    ],
+    tools: [
+      "Adobe Illustrator",
+      "Adobe Photoshop",
+      "3D Emboss & Lighting",
+      "Bespoke Typography",
+    ],
+    colorPalette: [
+      { name: "Luxury Gold", hex: "#D4AF37" },
+      { name: "Champagne Glow", hex: "#F3E5AB" },
+      { name: "Carbon Weave", hex: "#1C1D21" },
+      { name: "Bronze Accents", hex: "#CD7F32" },
+    ],
+    primaryImage: "/designs/cake-oclock-gold.jpeg",
+    altText: "Cake o' clock 3D luxury gold metallic emblem logo on carbon fiber background",
+    accentGlow: "from-amber-500/20 via-yellow-500/10 to-transparent",
+  },
+  {
+    id: "fruit-park",
+    title: "Fruit Park Restaurant",
+    subtitle: "Culinary Mascot & Brand Identity",
+    category: "Brand Logos",
+    badge: "Mascot Illustration",
+    client: "Fruit Park Restaurant & Grill",
+    year: "2025",
+    summary:
+      "An inviting, vibrant character mascot logo created for Fruit Park Restaurant, featuring an executive chef proudly presenting a silver cloche platter with a confident thumbs-up gesture.",
+    concept:
+      "Created to bring approachable warmth, appetite appeal, and friendly hospitality to the restaurant's visual presence. The chef character is illustrated with precise vector contours, high-contrast cel shading, and a bright golden sunrise circular halo, paired with clean, dimensional sans-serif typography with subtle drop-shadows.",
+    deliverables: [
+      "Scalable Vector Mascot Illustration",
+      "Restaurant Signage & Facade Lockup",
+      "Menu Header & Stamp Assets",
+      "Staff Apparel & Apron Print Prep",
+    ],
+    tools: [
+      "Adobe Illustrator",
+      "Vector Character Design",
+      "Adobe Photoshop",
+      "Color Psychology",
+    ],
+    colorPalette: [
+      { name: "Chef Apron White", hex: "#FFFFFF" },
+      { name: "Sunrise Amber", hex: "#F59E0B" },
+      { name: "Crimson Neckerchief", hex: "#991B1B" },
+      { name: "Charcoal Depth", hex: "#1F2937" },
+    ],
+    primaryImage: "/designs/fruit-park-restaurant.jpeg",
+    altText: "Fruit Park Restaurant mascot logo with chef holding cloche platter",
+    accentGlow: "from-orange-500/20 via-amber-500/10 to-transparent",
+  },
+  {
+    id: "family-heritage-plate",
+    title: "Heritage Ceramic Plate",
+    subtitle: "Genealogical Commemorative Porcelain Print",
+    category: "Merchandise & Print",
+    badge: "Porcelain Transfer Print",
+    client: "Abdul Latheef Family Commemorative",
+    year: "2025",
+    summary:
+      "An intricate genealogical commemorative porcelain plate celebrating family lineage through a deep-rooted tree illustration, titled 'The Love of a Family is a Life's Greatest Blessing'.",
+    concept:
+      "Crafted for custom porcelain heat-transfer printing. The intertwined double-trunk represents the parental union of Basheera Umma and Zainab Nachiya rooted in family patriarch Abdul Latheef. Symmetrical lush green branches cradle individual nameplates for each descendant, anchored by an elegant curved typography arc along the plate's lower rim.",
+    deliverables: [
+      "300 DPI Sublimation Transfer Master",
+      "Direct Porcelain Studio Mockup",
+      "Dynamic Angled Perspective Render",
+      "Curved Vector Typography Arc",
+    ],
+    tools: [
+      "Adobe Illustrator",
+      "Vector Tree Illustration",
+      "Product Mockup Staging",
+      "Curved Typography",
+      "Print CMYK Specs",
+    ],
+    colorPalette: [
+      { name: "Forest Canopy", hex: "#2F5233" },
+      { name: "Oak Trunk", hex: "#5C3A21" },
+      { name: "Parchment Cream", hex: "#FDF6E2" },
+      { name: "Porcelain Glaze", hex: "#F8FAFC" },
+    ],
+    primaryImage: "/designs/family-tree-plate-front.jpeg",
+    altText: "Commemorative ceramic plate with custom family tree illustration",
+    gallery: [
+      {
+        image: "/designs/family-tree-plate-front.jpeg",
+        caption: "Direct ceramic porcelain plate mockup with studio softbox lighting and true glaze reflections",
+        label: "Studio Mockup",
+      },
+      {
+        image: "/designs/family-tree-plate-angle.jpeg",
+        caption: "Floating perspective view showcasing porcelain surface curvature and print depth",
+        label: "Perspective View",
+      },
+      {
+        image: "/designs/family-tree-vector-art.webp",
+        caption: "Original 300 DPI master vector artwork ready for ceramic heat-press sublimation",
+        label: "Master Vector",
+      },
+    ],
+    accentGlow: "from-emerald-500/20 via-teal-500/10 to-transparent",
+  },
+  {
+    id: "ever-smiling-angels",
+    title: "Ever Smiling Angels",
+    subtitle: "Custom Friendship Keepsake Mug & Sublimation Wrap",
+    category: "Merchandise & Print",
+    badge: "Sublimation Print & Merchandise",
+    client: "Friendship Commemorative (15 Nov 2025)",
+    year: "2025",
+    summary:
+      "A 360-degree custom ceramic coffee mug wrap combining ornate gold floral geometric framing, bespoke calligraphic flourish, an inspirational friendship quote, and a playful 3D smiling emoji base.",
+    concept:
+      "Engineered to exact sublimation print proportions for a standard 11oz ceramic mug. The front showcases the 'Ever Smiling Angels' typography within a floral hexagon accompanied by a commemorative date (15 November 2025). The reverse displays a heartfelt sentiment on lasting friendship, seamlessly unified across the mug circumference with a lively border of three-dimensional emoji globes.",
+    deliverables: [
+      "Full 360° Sublimation Mug Wrap (300 DPI)",
+      "Dual-Sided 3D Product Mockup",
+      "Custom Calligraphic Monogram",
+      "Production-Ready Print PDF",
+    ],
+    tools: [
+      "Adobe Illustrator",
+      "Adobe Photoshop",
+      "Calligraphic Flourish",
+      "3D Compositing",
+      "Sublimation Mockup",
+    ],
+    colorPalette: [
+      { name: "Imperial Gold", hex: "#C5A059" },
+      { name: "Velvet Burgundy", hex: "#6D1B24" },
+      { name: "Emoji Glow Yellow", hex: "#FFD000" },
+      { name: "Gloss White", hex: "#FFFFFF" },
+    ],
+    primaryImage: "/designs/smiling-angels-mug-mockup.jpeg",
+    altText: "Ever Smiling Angels coffee mug mockup showing front and back wrap artwork",
+    gallery: [
+      {
+        image: "/designs/smiling-angels-mug-mockup.jpeg",
+        caption: "Dual-sided 3D coffee mug product mockup displaying both front emblem and back quote",
+        label: "Product Mockup",
+      },
+      {
+        image: "/designs/smiling-angels-wrap-art.png",
+        caption: "Full flat 360° sublimation print wrap file with continuous 3D emoji base margin",
+        label: "Full Wrap Art",
+      },
+    ],
+    accentGlow: "from-purple-500/20 via-pink-500/10 to-transparent",
   },
 ];
 

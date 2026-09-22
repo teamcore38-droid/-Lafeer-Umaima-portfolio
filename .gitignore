@@ -23,3 +23,7 @@ pnpm-debug.log*
 # editors
 .idea/
 .vscode/
+
+# raw upload archives
+*.zip
+logo/

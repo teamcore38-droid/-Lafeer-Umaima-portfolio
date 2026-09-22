@@ -1,0 +1,593 @@
+---
+import { graphicDesigns } from "../data/site";
+---
+
+<section
+  id="designs"
+  class="relative mx-auto max-w-6xl px-6 py-10 md:py-14"
+  aria-labelledby="designs-title"
+>
+  <!-- Presentation Chapter Tag -->
+  <div class="flex items-center gap-2 font-mono text-xs text-purple-400">
+    <span class="h-1.5 w-1.5 rounded-full bg-purple-400"></span>
+    <span>SLIDE 04 // BRAND IDENTITY & CREATIVE DESIGNS</span>
+  </div>
+
+  <!-- Section Header -->
+  <div class="mt-3 flex flex-col md:flex-row md:items-end md:justify-between gap-6 border-b border-white/[0.08] pb-6">
+    <div>
+      <h2
+        id="designs-title"
+        class="text-3xl font-extrabold tracking-tight text-white sm:text-4xl md:text-5xl"
+      >
+        Visual Identity & <span class="gradient-text-purple-blue">Creative Design</span>
+      </h2>
+      <p class="mt-2.5 max-w-2xl text-base text-slate-400 leading-relaxed">
+        Merging vector precision with brand storytelling. Featuring bespoke emblem logos, character mascot design, and custom product sublimation merchandise crafted with Adobe Creative Cloud.
+      </p>
+    </div>
+
+    <!-- Credentials Badge -->
+    <div class="flex flex-col sm:flex-row items-start sm:items-center gap-2.5 shrink-0">
+      <div class="inline-flex items-center gap-2 rounded-xl border border-purple-500/30 bg-purple-500/10 px-3.5 py-2 text-xs font-medium text-purple-300 backdrop-blur-md">
+        <svg class="h-4 w-4 text-purple-400 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z" />
+        </svg>
+        <span>Diploma in Graphic Design &bull; CeyLearn</span>
+      </div>
+      <div class="inline-flex items-center gap-1.5 rounded-xl border border-cyan-500/30 bg-cyan-950/30 px-3 py-2 font-mono text-[11px] text-cyan-300">
+        <span class="h-1.5 w-1.5 rounded-full bg-cyan-400 animate-pulse"></span>
+        <span>Photoshop &bull; Illustrator</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Category Filter Controls -->
+  <div class="mt-8 flex flex-wrap items-center gap-2 sm:gap-3" id="design-filter-bar">
+    <button
+      type="button"
+      data-filter="all"
+      class="design-filter-btn active-filter rounded-full px-4 py-2 text-xs font-semibold transition-all border border-purple-500/50 bg-purple-600/30 text-white shadow-[0_0_15px_rgba(139,92,246,0.3)]"
+    >
+      All Works ({graphicDesigns.length})
+    </button>
+    <button
+      type="button"
+      data-filter="Brand Logos"
+      class="design-filter-btn rounded-full px-4 py-2 text-xs font-semibold transition-all border border-white/10 bg-white/[0.03] text-slate-300 hover:text-white hover:border-purple-400/40 hover:bg-white/[0.06]"
+    >
+      Brand Logos & Emblems (2)
+    </button>
+    <button
+      type="button"
+      data-filter="Merchandise & Print"
+      class="design-filter-btn rounded-full px-4 py-2 text-xs font-semibold transition-all border border-white/10 bg-white/[0.03] text-slate-300 hover:text-white hover:border-purple-400/40 hover:bg-white/[0.06]"
+    >
+      Merchandise & Products (2)
+    </button>
+  </div>
+
+  <!-- Designs Grid -->
+  <div class="mt-8 grid gap-8 md:grid-cols-2" id="designs-grid">
+    {graphicDesigns.map((design, index) => (
+      <article
+        data-category={design.category}
+        data-index={index}
+        class="design-card glass-panel glass-panel-hover relative flex flex-col justify-between rounded-2xl border-white/10 p-6 md:p-7 transition-all duration-300 overflow-hidden group"
+      >
+        <!-- Ambient subtle inner glow -->
+        <div
+          class:list={[
+            "pointer-events-none absolute -top-24 -right-24 h-64 w-64 rounded-full blur-3xl opacity-20 transition-opacity group-hover:opacity-40",
+            `bg-gradient-to-br ${design.accentGlow}`
+          ]}
+          aria-hidden="true"
+        ></div>
+
+        <div>
+          <!-- Header Meta -->
+          <div class="flex flex-wrap items-center justify-between gap-3">
+            <div class="flex items-center gap-2">
+              <span class="inline-flex items-center gap-1.5 rounded-full border border-purple-500/30 bg-purple-500/10 px-3 py-1 text-xs font-medium text-purple-300">
+                <span class="h-1.5 w-1.5 rounded-full bg-purple-400"></span>
+                <span>{design.badge}</span>
+              </span>
+              <span class="font-mono text-[11px] text-slate-400">
+                // {design.year}
+              </span>
+            </div>
+
+            <span class="font-mono text-xs text-cyan-400 bg-cyan-950/40 border border-cyan-800/40 px-2.5 py-0.5 rounded-full">
+              {design.category}
+            </span>
+          </div>
+
+          <!-- Main Image Showcase -->
+          <div class="relative mt-5 overflow-hidden rounded-xl border border-white/10 bg-black/40 group/media">
+            <img
+              id={`card-img-${design.id}`}
+              src={design.primaryImage}
+              alt={design.altText}
+              loading="lazy"
+              class="aspect-[16/10] w-full object-cover object-center transition-transform duration-500 group-hover/media:scale-105 cursor-pointer open-modal-btn"
+              data-design-index={index}
+            />
+
+            <!-- Hover quick action overlay -->
+            <div
+              class="absolute inset-0 bg-gradient-to-t from-[#070814]/90 via-[#070814]/40 to-transparent opacity-0 transition-opacity duration-300 group-hover/media:opacity-100 flex items-end justify-between p-4 cursor-pointer open-modal-btn"
+              data-design-index={index}
+            >
+              <div class="flex items-center gap-2 text-xs font-semibold text-white">
+                <svg class="h-4 w-4 text-cyan-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
+                </svg>
+                <span>Click to expand high-res & story</span>
+              </div>
+              <span class="rounded-lg bg-purple-600/60 border border-purple-400/40 p-1.5 text-white backdrop-blur-sm shadow-md">
+                <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 8V4m0 0h4M4 4l5 5m11-1V4m0 0h-4m4 0l-5 5M4 16v4m0 0h4m-4 0l5-5m11 5l-5-5m5 5v-4m0 4h-4" />
+                </svg>
+              </span>
+            </div>
+
+            <!-- In-Card Thumbnail View Switcher (for projects with multiple angles/views) -->
+            {design.gallery && design.gallery.length > 1 && (
+              <div class="absolute top-2.5 right-2.5 z-10 flex items-center gap-1.5 rounded-lg bg-[#070814]/85 p-1 border border-white/10 backdrop-blur-md">
+                {design.gallery.map((view, vIdx) => (
+                  <button
+                    type="button"
+                    title={view.caption}
+                    data-target-img={`card-img-${design.id}`}
+                    data-img-src={view.image}
+                    class:list={[
+                      "view-switch-btn text-[10px] font-mono px-2 py-0.5 rounded transition-all",
+                      vIdx === 0
+                        ? "bg-purple-500 text-white font-semibold"
+                        : "text-slate-300 hover:text-white hover:bg-white/10"
+                    ]}
+                  >
+                    {view.label}
+                  </button>
+                ))}
+              </div>
+            )}
+          </div>
+
+          <!-- Titles -->
+          <div class="mt-5">
+            <h3 class="text-2xl font-extrabold tracking-tight text-white group-hover:text-purple-200 transition-colors">
+              {design.title}
+            </h3>
+            <p class="font-mono text-xs text-purple-300 mt-1">
+              {design.subtitle}
+            </p>
+            <p class="mt-3 text-sm text-slate-300 leading-relaxed line-clamp-3">
+              {design.summary}
+            </p>
+          </div>
+
+          <!-- Key Deliverables Pill List -->
+          <div class="mt-4 rounded-xl border border-white/[0.06] bg-white/[0.02] p-3 backdrop-blur-sm">
+            <div class="font-mono text-[11px] uppercase tracking-wider text-cyan-300 mb-2 flex items-center gap-1.5">
+              <span class="h-1.5 w-1.5 rounded-full bg-cyan-400"></span>
+              <span>Deliverables</span>
+            </div>
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-1.5">
+              {design.deliverables.map((item) => (
+                <div class="flex items-center gap-2 text-xs text-slate-300">
+                  <svg class="h-3 w-3 text-purple-400 shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                    <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
+                  </svg>
+                  <span class="truncate">{item}</span>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+
+        <!-- Card Footer: Tools & Actions -->
+        <div class="mt-6 pt-5 border-t border-white/[0.08]">
+          <!-- Tools & Color Palette Preview -->
+          <div class="flex flex-wrap items-center justify-between gap-3 mb-4">
+            <div class="flex flex-wrap items-center gap-1.5">
+              {design.tools.slice(0, 3).map((tool) => (
+                <span class="font-mono text-[11px] rounded-md bg-white/[0.04] border border-white/10 px-2 py-0.5 text-slate-300">
+                  {tool}
+                </span>
+              ))}
+              {design.tools.length > 3 && (
+                <span class="font-mono text-[11px] rounded-md bg-purple-500/10 border border-purple-500/20 px-2 py-0.5 text-purple-300">
+                  +{design.tools.length - 3} more
+                </span>
+              )}
+            </div>
+
+            <!-- Color Swatches -->
+            <div class="flex items-center gap-1.5" title="Design Color Palette">
+              {design.colorPalette.map((c) => (
+                <span
+                  class="h-3.5 w-3.5 rounded-full border border-white/20 shadow-sm transition-transform hover:scale-125"
+                  style={`background-color: ${c.hex};`}
+                  title={`${c.name} (${c.hex})`}
+                ></span>
+              ))}
+            </div>
+          </div>
+
+          <!-- Action Button -->
+          <button
+            type="button"
+            data-design-index={index}
+            class="open-modal-btn w-full inline-flex items-center justify-center gap-2 rounded-xl py-2.5 px-4 text-xs font-semibold text-white transition-all gradient-btn shadow-md hover:shadow-purple-500/25"
+          >
+            <span>View Design Story & Specs</span>
+            <svg class="h-3.5 w-3.5 transition-transform group-hover:translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+            </svg>
+          </button>
+        </div>
+      </article>
+    ))}
+  </div>
+
+  <!-- Interactive Lightbox Modal -->
+  <div
+    id="design-modal"
+    class="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6 md:p-8 bg-[#070814]/90 backdrop-blur-xl opacity-0 pointer-events-none transition-all duration-300"
+    role="dialog"
+    aria-modal="true"
+    aria-hidden="true"
+  >
+    <!-- Modal Backdrop Click Dismiss Area -->
+    <div id="modal-backdrop" class="absolute inset-0 cursor-pointer"></div>
+
+    <!-- Modal Content Box -->
+    <div
+      id="modal-box"
+      class="relative z-10 max-w-5xl w-full max-h-[92vh] flex flex-col lg:flex-row overflow-hidden rounded-2xl border border-white/15 bg-[#0b0d1e] shadow-2xl shadow-purple-950/50 scale-95 transition-transform duration-300"
+    >
+      <!-- Close Button -->
+      <button
+        type="button"
+        id="modal-close-btn"
+        class="absolute top-4 right-4 z-20 flex h-9 w-9 items-center justify-center rounded-xl bg-white/10 text-white hover:bg-white/20 hover:text-white border border-white/15 transition-all backdrop-blur-md"
+        aria-label="Close modal"
+      >
+        <svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+        </svg>
+      </button>
+
+      <!-- Modal Left: Interactive Media Viewer -->
+      <div class="lg:w-1/2 flex flex-col justify-between bg-black/60 p-6 border-b lg:border-b-0 lg:border-r border-white/10">
+        <div class="relative flex-1 flex items-center justify-center min-h-[260px] sm:min-h-[340px] overflow-hidden rounded-xl bg-black/40 border border-white/10 p-2">
+          <img
+            id="modal-image"
+            src=""
+            alt=""
+            class="max-h-[50vh] lg:max-h-[62vh] w-auto max-w-full object-contain rounded-lg transition-all duration-300"
+          />
+        </div>
+
+        <!-- Thumbnail selector in modal (if project has gallery) -->
+        <div id="modal-gallery-thumbs" class="mt-4 flex items-center justify-center gap-2 flex-wrap">
+          <!-- Populated by JS -->
+        </div>
+
+        <!-- Image Caption -->
+        <p id="modal-image-caption" class="mt-2 text-center font-mono text-[11px] text-slate-400">
+          <!-- Populated by JS -->
+        </p>
+
+        <!-- Prev / Next Navigation in Modal Footer -->
+        <div class="mt-4 pt-3 border-t border-white/10 flex items-center justify-between">
+          <button
+            type="button"
+            id="modal-prev-btn"
+            class="inline-flex items-center gap-1.5 rounded-lg border border-white/10 bg-white/[0.04] px-3 py-1.5 text-xs text-slate-300 hover:text-white hover:border-purple-400/40 transition-all"
+          >
+            <svg class="h-3.5 w-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
+            </svg>
+            <span>Previous Design</span>
+          </button>
+
+          <span id="modal-counter" class="font-mono text-xs text-purple-400">
+            1 / 4
+          </span>
+
+          <button
+            type="button"
+            id="modal-next-btn"
+            class="inline-flex items-center gap-1.5 rounded-lg border border-white/10 bg-white/[0.04] px-3 py-1.5 text-xs text-slate-300 hover:text-white hover:border-purple-400/40 transition-all"
+          >
+            <span>Next Design</span>
+            <svg class="h-3.5 w-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+            </svg>
+          </button>
+        </div>
+      </div>
+
+      <!-- Modal Right: Detailed Design Dossier (Scrollable) -->
+      <div class="lg:w-1/2 p-6 sm:p-8 overflow-y-auto max-h-[50vh] lg:max-h-[92vh] space-y-6">
+        <!-- Top Tags -->
+        <div class="flex flex-wrap items-center gap-2">
+          <span id="modal-badge" class="rounded-full border border-purple-500/40 bg-purple-500/15 px-3 py-0.5 text-xs font-semibold text-purple-300"></span>
+          <span id="modal-category" class="font-mono text-xs text-cyan-400 bg-cyan-950/40 border border-cyan-800/40 px-2.5 py-0.5 rounded-full"></span>
+          <span id="modal-year" class="font-mono text-xs text-slate-400"></span>
+        </div>
+
+        <!-- Title & Client -->
+        <div>
+          <h3 id="modal-title" class="text-2xl sm:text-3xl font-extrabold text-white tracking-tight"></h3>
+          <p id="modal-subtitle" class="font-mono text-xs text-purple-300 mt-1"></p>
+          <div class="mt-2 text-xs text-slate-400 flex items-center gap-1.5">
+            <span class="font-semibold text-slate-300">Client / Context:</span>
+            <span id="modal-client"></span>
+          </div>
+        </div>
+
+        <!-- Concept & Design Story -->
+        <div class="space-y-2">
+          <h4 class="font-mono text-xs uppercase tracking-wider text-purple-300 flex items-center gap-2">
+            <span>// Creative Concept & Symbolic Logic</span>
+          </h4>
+          <p id="modal-concept" class="text-sm text-slate-300 leading-relaxed bg-white/[0.02] border border-white/[0.06] rounded-xl p-4"></p>
+        </div>
+
+        <!-- Deliverables -->
+        <div class="space-y-2">
+          <h4 class="font-mono text-xs uppercase tracking-wider text-cyan-300 flex items-center gap-2">
+            <span>// Delivered Assets & Specifications</span>
+          </h4>
+          <div id="modal-deliverables" class="grid gap-2 sm:grid-cols-2">
+            <!-- Populated by JS -->
+          </div>
+        </div>
+
+        <!-- Color Palette -->
+        <div class="space-y-2">
+          <h4 class="font-mono text-xs uppercase tracking-wider text-purple-300">
+            // Brand Color Palette
+          </h4>
+          <div id="modal-palette" class="flex flex-wrap items-center gap-3">
+            <!-- Populated by JS -->
+          </div>
+        </div>
+
+        <!-- Software Stack -->
+        <div class="space-y-2">
+          <h4 class="font-mono text-xs uppercase tracking-wider text-slate-400">
+            // Production Tools
+          </h4>
+          <div id="modal-tools" class="flex flex-wrap gap-2">
+            <!-- Populated by JS -->
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Client-side Script for Filtering, In-Card Switching, and Full Lightbox Modal -->
+<script is:inline define:vars={{ designsData: graphicDesigns }}>
+  (function () {
+    let currentModalIndex = 0;
+
+    // Filter Buttons
+    const filterButtons = document.querySelectorAll(".design-filter-btn");
+    const cards = document.querySelectorAll(".design-card");
+
+    filterButtons.forEach((btn) => {
+      btn.addEventListener("click", () => {
+        filterButtons.forEach((b) => {
+          b.classList.remove("active-filter", "border-purple-500/50", "bg-purple-600/30", "text-white", "shadow-[0_0_15px_rgba(139,92,246,0.3)]");
+          b.classList.add("border-white/10", "bg-white/[0.03]", "text-slate-300");
+        });
+        btn.classList.add("active-filter", "border-purple-500/50", "bg-purple-600/30", "text-white", "shadow-[0_0_15px_rgba(139,92,246,0.3)]");
+        btn.classList.remove("border-white/10", "bg-white/[0.03]", "text-slate-300");
+
+        const filter = btn.getAttribute("data-filter");
+        cards.forEach((card) => {
+          const category = card.getAttribute("data-category");
+          if (filter === "all" || category === filter) {
+            card.style.display = "flex";
+            card.style.opacity = "1";
+          } else {
+            card.style.display = "none";
+            card.style.opacity = "0";
+          }
+        });
+      });
+    });
+
+    // In-Card View Switchers (thumbnail / angle pills)
+    const viewButtons = document.querySelectorAll(".view-switch-btn");
+    viewButtons.forEach((btn) => {
+      btn.addEventListener("click", (e) => {
+        e.stopPropagation();
+        const parent = btn.parentElement;
+        parent.querySelectorAll(".view-switch-btn").forEach((b) => {
+          b.classList.remove("bg-purple-500", "text-white", "font-semibold");
+          b.classList.add("text-slate-300");
+        });
+        btn.classList.add("bg-purple-500", "text-white", "font-semibold");
+        btn.classList.remove("text-slate-300");
+
+        const targetId = btn.getAttribute("data-target-img");
+        const newSrc = btn.getAttribute("data-img-src");
+        const targetImg = document.getElementById(targetId);
+        if (targetImg && newSrc) {
+          targetImg.src = newSrc;
+        }
+      });
+    });
+
+    // Modal elements
+    const modal = document.getElementById("design-modal");
+    const modalBox = document.getElementById("modal-box");
+    const modalBackdrop = document.getElementById("modal-backdrop");
+    const modalCloseBtn = document.getElementById("modal-close-btn");
+    const modalPrevBtn = document.getElementById("modal-prev-btn");
+    const modalNextBtn = document.getElementById("modal-next-btn");
+
+    const modalImage = document.getElementById("modal-image");
+    const modalImageCaption = document.getElementById("modal-image-caption");
+    const modalGalleryThumbs = document.getElementById("modal-gallery-thumbs");
+    const modalCounter = document.getElementById("modal-counter");
+
+    const modalBadge = document.getElementById("modal-badge");
+    const modalCategory = document.getElementById("modal-category");
+    const modalYear = document.getElementById("modal-year");
+    const modalTitle = document.getElementById("modal-title");
+    const modalSubtitle = document.getElementById("modal-subtitle");
+    const modalClient = document.getElementById("modal-client");
+    const modalConcept = document.getElementById("modal-concept");
+    const modalDeliverables = document.getElementById("modal-deliverables");
+    const modalPalette = document.getElementById("modal-palette");
+    const modalTools = document.getElementById("modal-tools");
+
+    function renderModal(index) {
+      const design = designsData[index];
+      if (!design) return;
+
+      currentModalIndex = index;
+      modalCounter.textContent = `${index + 1} / ${designsData.length}`;
+
+      // Populate text
+      modalBadge.textContent = design.badge;
+      modalCategory.textContent = design.category;
+      modalYear.textContent = `// ${design.year}`;
+      modalTitle.textContent = design.title;
+      modalSubtitle.textContent = design.subtitle;
+      modalClient.textContent = design.client;
+      modalConcept.textContent = design.concept;
+
+      // Deliverables
+      modalDeliverables.innerHTML = "";
+      design.deliverables.forEach((item) => {
+        const div = document.createElement("div");
+        div.className = "flex items-start gap-2 text-xs text-slate-300 bg-white/[0.02] p-2 rounded-lg border border-white/[0.05]";
+        div.innerHTML = `
+          <svg class="h-3.5 w-3.5 text-cyan-400 shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+            <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
+          </svg>
+          <span>${item}</span>
+        `;
+        modalDeliverables.appendChild(div);
+      });
+
+      // Color Palette
+      modalPalette.innerHTML = "";
+      design.colorPalette.forEach((c) => {
+        const pill = document.createElement("div");
+        pill.className = "flex items-center gap-2 bg-white/[0.04] border border-white/10 px-2.5 py-1 rounded-lg";
+        pill.innerHTML = `
+          <span class="h-3.5 w-3.5 rounded-full border border-white/30" style="background-color: ${c.hex}"></span>
+          <div class="flex flex-col">
+            <span class="text-[11px] font-semibold text-white leading-tight">${c.name}</span>
+            <span class="font-mono text-[10px] text-slate-400">${c.hex}</span>
+          </div>
+        `;
+        modalPalette.appendChild(pill);
+      });
+
+      // Tools
+      modalTools.innerHTML = "";
+      design.tools.forEach((tool) => {
+        const span = document.createElement("span");
+        span.className = "font-mono text-xs rounded-md bg-white/[0.05] border border-white/10 px-2.5 py-1 text-purple-200";
+        span.textContent = tool;
+        modalTools.appendChild(span);
+      });
+
+      // Gallery Thumbnails & Main Image
+      modalGalleryThumbs.innerHTML = "";
+      if (design.gallery && design.gallery.length > 0) {
+        modalImage.src = design.gallery[0].image;
+        modalImage.alt = design.title;
+        modalImageCaption.textContent = design.gallery[0].caption;
+
+        design.gallery.forEach((view, vIdx) => {
+          const thumbBtn = document.createElement("button");
+          thumbBtn.type = "button";
+          thumbBtn.className = `px-2.5 py-1 rounded-lg text-xs font-mono border transition-all ${
+            vIdx === 0
+              ? "bg-purple-600 text-white border-purple-400/50 shadow-sm"
+              : "bg-white/[0.04] text-slate-300 border-white/10 hover:text-white"
+          }`;
+          thumbBtn.textContent = view.label;
+          thumbBtn.addEventListener("click", () => {
+            modalGalleryThumbs.querySelectorAll("button").forEach((b) => {
+              b.className = "px-2.5 py-1 rounded-lg text-xs font-mono border transition-all bg-white/[0.04] text-slate-300 border-white/10 hover:text-white";
+            });
+            thumbBtn.className = "px-2.5 py-1 rounded-lg text-xs font-mono border transition-all bg-purple-600 text-white border-purple-400/50 shadow-sm";
+            modalImage.src = view.image;
+            modalImageCaption.textContent = view.caption;
+          });
+          modalGalleryThumbs.appendChild(thumbBtn);
+        });
+      } else {
+        modalImage.src = design.primaryImage;
+        modalImage.alt = design.altText;
+        modalImageCaption.textContent = design.altText;
+      }
+    }
+
+    function openModal(index) {
+      renderModal(index);
+      modal.classList.remove("opacity-0", "pointer-events-none");
+      modal.classList.add("opacity-100", "pointer-events-auto");
+      modalBox.classList.remove("scale-95");
+      modalBox.classList.add("scale-100");
+      document.body.style.overflow = "hidden";
+    }
+
+    function closeModal() {
+      modal.classList.remove("opacity-100", "pointer-events-auto");
+      modal.classList.add("opacity-0", "pointer-events-none");
+      modalBox.classList.remove("scale-100");
+      modalBox.classList.add("scale-95");
+      document.body.style.overflow = "";
+    }
+
+    // Modal Triggers
+    document.querySelectorAll(".open-modal-btn").forEach((btn) => {
+      btn.addEventListener("click", (e) => {
+        e.preventDefault();
+        const idx = parseInt(btn.getAttribute("data-design-index") || "0", 10);
+        openModal(idx);
+      });
+    });
+
+    modalCloseBtn.addEventListener("click", closeModal);
+    modalBackdrop.addEventListener("click", closeModal);
+
+    modalPrevBtn.addEventListener("click", () => {
+      const prevIdx = (currentModalIndex - 1 + designsData.length) % designsData.length;
+      renderModal(prevIdx);
+    });
+
+    modalNextBtn.addEventListener("click", () => {
+      const nextIdx = (currentModalIndex + 1) % designsData.length;
+      renderModal(nextIdx);
+    });
+
+    // Keyboard support: ESC to close, Left/Right arrows to cycle
+    document.addEventListener("keydown", (e) => {
+      if (!modal.classList.contains("opacity-100")) return;
+      if (e.key === "Escape") {
+        closeModal();
+      } else if (e.key === "ArrowLeft") {
+        const prevIdx = (currentModalIndex - 1 + designsData.length) % designsData.length;
+        renderModal(prevIdx);
+      } else if (e.key === "ArrowRight") {
+        const nextIdx = (currentModalIndex + 1) % designsData.length;
+        renderModal(nextIdx);
+      }
+    });
+  })();
+</script>
